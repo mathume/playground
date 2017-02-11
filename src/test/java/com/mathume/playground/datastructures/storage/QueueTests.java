@@ -1,6 +1,5 @@
 package com.mathume.playground.datastructures.storage;
 
-import com.mathume.playground.datastructures.storage.Queue1;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -11,31 +10,51 @@ import static org.hamcrest.core.Is.is;
  * Created by sebastian on 9/02/17.
  */
 public class QueueTests {
+
     @Test
-    public void puts_first_element(){
-        Queue1 q = new Queue1();
-        Object o = new Object();
-        q.put(o);
-        assertThat(q.pop(), is(equalTo(o)));
+    public void Queue1_test_one_element(){
+        Queue q = new Queue1();
+        test_one_element_in_and_out(q);
     }
 
     @Test
-    public void fifo(){
+    public void Queue1_fifo(){
+        Queue q = new Queue1();
+        test_order(q);
+    }
+
+    @Test
+    public void Queue2_test_one_element(){
+        Queue q = new Queue2();
+        test_one_element_in_and_out(q);
+    }
+
+    @Test
+    public void Queue2_fifo(){
+        Queue q = new Queue2();
+        test_order(q);
+    }
+
+    private void test_one_element_in_and_out(Queue q) {
+        Object o = new Object();
+        q.enqueue(o);
+        assertThat(q.dequeue(), is(equalTo(o)));
+    }
+
+    private void test_order(Queue q) {
         Object first = "first";
         Object last = "last";
-        Queue1 q = getFullQueue(first, last, 3);
-        assertThat(q.pop(), is(equalTo(first)));
-        q.pop();
-        assertThat(q.pop(), is(equalTo(last)));
+        fillQueue(first, last, 3, q);
+        assertThat(q.dequeue(), is(equalTo(first)));
+        q.dequeue();
+        assertThat(q.dequeue(), is(equalTo(last)));
     }
 
-    private Queue1 getFullQueue(Object first, Object last, int capacity) {
-        Queue1 q = new Queue1();
-        q.put(first);
+    private void fillQueue(Object first, Object last, int capacity, Queue q) {
+        q.enqueue(first);
         for(int i=1; i<capacity-1; i++){
-            q.put(null);
+            q.enqueue(null);
         }
-        q.put(last);
-        return q;
+        q.enqueue(last);
     }
 }

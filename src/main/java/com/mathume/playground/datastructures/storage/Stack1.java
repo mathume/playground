@@ -35,7 +35,7 @@ public class Stack1 {
         this.current = e;
     }
 
-    private boolean isEmpty() {
+    public boolean isEmpty() {
         return this.current == null;
     }
 }
