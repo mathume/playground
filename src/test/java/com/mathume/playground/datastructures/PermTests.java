@@ -20,9 +20,7 @@ public class PermTests {
         int[] array = new int[3];
         for(int i=0; i<array.length; i++) array[i] = i;
 
-        List<Integer[]> perms = new ArrayList<Integer[]>();
-
-        Perm.all(array, 0, perms);
+        List<Integer[]> perms = Perm.all(array);
 
         assertThat(perms.size(), is(equalTo(6)));
         for(Integer[] perm : perms){
