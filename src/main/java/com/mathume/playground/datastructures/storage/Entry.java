@@ -1,4 +1,4 @@
-package com.mathume.playground.datastructures;
+package com.mathume.playground.datastructures.storage;
 
 /**
  * Created by sebastian on 10/02/17.
@@ -22,10 +22,6 @@ public class Entry {
 
     public Object getContent() {
         return content;
-    }
-
-    public void setContent(Object content) {
-        this.content = content;
     }
 
 }

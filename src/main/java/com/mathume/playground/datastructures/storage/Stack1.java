@@ -1,4 +1,4 @@
-package com.mathume.playground.datastructures;
+package com.mathume.playground.datastructures.storage;
 
 /**
  * Created by sebastian on 10/02/17.

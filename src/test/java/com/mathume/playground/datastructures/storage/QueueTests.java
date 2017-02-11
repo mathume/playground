@@ -1,5 +1,6 @@
-package com.mathume.playground.datastructures;
+package com.mathume.playground.datastructures.storage;
 
+import com.mathume.playground.datastructures.storage.Queue1;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.equalTo;
