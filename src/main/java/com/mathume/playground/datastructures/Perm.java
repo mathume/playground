@@ -3,13 +3,14 @@ package com.mathume.playground.datastructures;
 import org.apache.commons.lang.ArrayUtils;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
  * Created by sebastian on 11/02/17.
  */
 public class Perm {
+
+    private Perm() { }
 
     /**
      * Creates all permutations of array

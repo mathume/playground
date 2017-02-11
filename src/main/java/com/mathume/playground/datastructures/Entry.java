@@ -5,6 +5,13 @@ package com.mathume.playground.datastructures;
  */
 public class Entry {
 
+    private Entry next;
+    private Object content;
+
+    public Entry(Object entry){
+        this.content = entry;
+    }
+
     public Entry getNext() {
         return next;
     }
@@ -13,18 +20,12 @@ public class Entry {
         this.next = next;
     }
 
-    public Object getEntry() {
-        return entry;
+    public Object getContent() {
+        return content;
     }
 
-    public void setEntry(Object entry) {
-        this.entry = entry;
+    public void setContent(Object content) {
+        this.content = content;
     }
 
-    private Entry next;
-    private Object entry;
-
-    public Entry(Object entry){
-        this.entry = entry;
-    }
 }

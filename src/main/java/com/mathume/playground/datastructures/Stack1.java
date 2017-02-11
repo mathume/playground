@@ -17,7 +17,7 @@ public class Stack1 {
      */
     public Object pop(){
         if(!isEmpty()){
-            Object f = this.current.getEntry();
+            Object f = this.current.getContent();
             this.current = this.current.getNext();
             return f;
         }else{

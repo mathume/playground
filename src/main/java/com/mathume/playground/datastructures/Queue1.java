@@ -32,7 +32,7 @@ public class Queue1 {
      */
     public Object pop() {
         if (!this.isEmpty()) {
-            Object f = this.first.getEntry();
+            Object f = this.first.getContent();
             this.first = this.first.getNext();
             return f;
         } else {
