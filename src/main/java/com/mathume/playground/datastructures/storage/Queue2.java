@@ -12,6 +12,10 @@ public class Queue2 implements Queue {
         this.out = new Stack1();
     }
 
+    public boolean isEmpty(){
+        return this.out.isEmpty();
+    }
+
     public void enqueue(Object o){
         this.in.put(o);
     }

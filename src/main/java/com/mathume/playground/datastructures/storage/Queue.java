@@ -6,4 +6,5 @@ package com.mathume.playground.datastructures.storage;
 public interface Queue {
     void enqueue(Object o);
     Object dequeue();
+    boolean isEmpty();
 }

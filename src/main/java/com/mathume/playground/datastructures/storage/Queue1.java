@@ -40,7 +40,7 @@ public class Queue1 implements Queue {
         }
     }
 
-    private boolean isEmpty() {
+    public boolean isEmpty() {
         return this.first == null;
     }
 }

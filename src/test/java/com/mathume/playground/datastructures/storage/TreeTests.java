@@ -70,4 +70,33 @@ public class TreeTests {
         assertThat(ordered.get(1), is(equalTo(0)));
         assertThat(ordered.get(2), is(equalTo(2)));
     }
+
+    @Test
+    public void traverse_levelOrder(){
+        BinaryTree<Integer> t = new BinaryTree<Integer>();
+        Node<Integer> left = new Node(1);
+        Node<Integer> right = new Node(2);
+        Node<Integer> root = new Node(left, 0, right);
+        t.setRoot(root);
+        LevelOrderTraversal trav = new LevelOrderTraversal(t);
+        List<Integer> ordered = trav.ordered();
+        assertThat(ordered.size(), is(equalTo(3)));
+        assertThat(ordered.get(0), is(equalTo(0)));
+        assertThat(ordered.get(1), is(equalTo(1)));
+        assertThat(ordered.get(2), is(equalTo(2)));
+    }
+
+    @Test
+    public void isBinarySearchTree(){
+        BinaryTree<Integer> t = BinaryTreeUtils.someBinarySearchTree(5);
+        BinaryTreeUtils.Print(t, System.out);
+        assertThat(BinaryTreeUtils.checkBinarySearchTree(t), is(true));
+    }
+
+    @Test
+    public void isNotBinarySearchTree(){
+        BinaryTree<Integer> t = BinaryTreeUtils.someBinarySearchTree(5);
+        t.getRoot().setValue(-1);
+        assertThat(BinaryTreeUtils.checkBinarySearchTree(t), is(false));
+    }
 }

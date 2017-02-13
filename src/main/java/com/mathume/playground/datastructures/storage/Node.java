@@ -15,35 +15,35 @@ public class Node<T> {
         this.value = value;
     }
 
-    public Node(Node left, T value){
+    public Node(Node<T> left, T value){
         this.value = value;
         this.left = left;
     }
 
-    public Node(T value, Node right){
+    public Node(T value, Node<T> right){
         this.value = value;
         this.right = right;
     }
 
-    public Node(Node left, T value, Node right){
+    public Node(Node<T> left, T value, Node<T> right){
         this.value = value;
         this.right = right;
         this.left = left;
     }
 
-    public Node getLeft() {
+    public Node<T> getLeft() {
         return left;
     }
 
-    public void setLeft(Node left) {
+    public void setLeft(Node<T> left) {
         this.left = left;
     }
 
-    public Node getRight() {
+    public Node<T> getRight() {
         return right;
     }
 
-    public void setRight(Node right) {
+    public void setRight(Node<T> right) {
         this.right = right;
     }
 
