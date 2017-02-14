@@ -12,7 +12,7 @@ public class BinaryTreeUtils {
         BinaryTree<Integer> t = new BinaryTree<Integer>();
         Node current = new Node<Integer>(depth);
         t.setRoot(current);
-        for(int i=depth, j=depth; i>1; i--, j++){
+        for(int i=depth, j=depth+1; i>1; i--, j++){
             current.setLeft(new Node<Integer>(i-1));
             current.setRight(new Node<Integer>(j));
             current = current.getLeft();
@@ -43,27 +43,6 @@ public class BinaryTreeUtils {
                 track.add(value);
                 checkBinarySearchTree(track, left);
                 checkBinarySearchTree(track, right);
-            }
-        }
-    }
-
-    public static void Print(BinaryTree t, PrintStream out){
-        Queue q = new Queue1();
-        Print(q, t.getRoot(), out);
-    }
-
-    private static void Print(Queue q, Node current, PrintStream out){
-        q.enqueue(current);
-        while(!q.isEmpty()){
-            current = (Node)q.dequeue();
-            out.print(current.getValue().toString() + "\t");
-            if(current.getLeft() != null){
-                q.enqueue(current.getLeft());
-            }
-            if(current.getRight() != null){
-                q.enqueue(current.getRight());
-            }else{
-                out.print("\n");
             }
         }
     }

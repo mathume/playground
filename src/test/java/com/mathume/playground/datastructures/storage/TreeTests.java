@@ -89,7 +89,6 @@ public class TreeTests {
     @Test
     public void isBinarySearchTree(){
         BinaryTree<Integer> t = BinaryTreeUtils.someBinarySearchTree(5);
-        BinaryTreeUtils.Print(t, System.out);
         assertThat(BinaryTreeUtils.checkBinarySearchTree(t), is(true));
     }
 
