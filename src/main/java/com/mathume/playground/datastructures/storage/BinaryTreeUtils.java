@@ -8,42 +8,45 @@ import java.util.List;
  * Created by sebastian on 13/02/17.
  */
 public class BinaryTreeUtils {
-    public static BinaryTree<Integer> someBinarySearchTree(int depth){
-        BinaryTree<Integer> t = new BinaryTree<Integer>();
-        Node current = new Node<Integer>(depth);
-        t.setRoot(current);
-        for(int i=depth, j=depth+1; i>1; i--, j++){
-            current.setLeft(new Node<Integer>(i-1));
-            current.setRight(new Node<Integer>(j));
-            current = current.getLeft();
-        }
-        return t;
-    }
 
-    public static boolean checkBinarySearchTree(BinaryTree<Integer> t){
+    public static boolean checkBinarySearchTree(BinaryTree<Integer> t) {
         List<Integer> visited = new ArrayList<Integer>();
-        try{
+        try {
             checkBinarySearchTree(visited, t.getRoot());
             return true;
-        }catch(IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             return false;
         }
     }
 
-    private static void checkBinarySearchTree(List<Integer> track, Node<Integer> current) throws IllegalArgumentException{
-        if(current != null){
+    private static void checkBinarySearchTree(List<Integer> track, Node<Integer> current) throws IllegalArgumentException {
+        if (current != null) {
             Integer value = current.getValue();
             Node<Integer> left = current.getLeft();
             Node<Integer> right = current.getRight();
-            if((left != null && value < left.getValue())
-                || (right != null && value > right.getValue())
-                    || track.contains(value)){
+            if ((left != null && value < left.getValue())
+                    || (right != null && value > right.getValue())) {
                 throw new IllegalArgumentException();
-            }else{
-                track.add(value);
+            } else {
+                addOrdered(track, value);
                 checkBinarySearchTree(track, left);
                 checkBinarySearchTree(track, right);
             }
+        }
+    }
+
+    private static void addOrdered(List<Integer> l, Integer value) throws IllegalArgumentException {
+        if (l != null && l.size() > 0) {
+            Integer first = l.get(0);
+            Integer last = l.get(l.size() - 1);
+            if (value == first || value == last) {
+                throw new IllegalArgumentException();
+            }
+            if (value < first) {
+                l.add(0, value);
+            }
+        } else {
+            l.add(value);
         }
     }
 }
